@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}  Login{% endblock %}
+{% block container %}
+
+            <div class="wrapper " style="margin-top: 150px">
+              <div class="row align-items-center h-100">
+                <form method="post" class="col-lg-3 col-md-4 col-10 mx-auto text-center">
+                    {% csrf_token %}
+
+                  <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.html">
+                    <img src="{% static "assets/images/newaccess.jpg" %}" alt="new access" width="310px" >
+                  </a>
+                   <hr>
+                  <h1 class="h6 mb-3">Sign in</h1>
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                  <div class="checkbox ">
+                    <label> Don't have an account ? </label>
+                      <a href="{% url 'signup' %}" type="checkbox" value="remember-me"> Sign Up</a>
+                  </div>
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                  <p class="mt-5 mb-3 text-muted">© Iheb Bousnina | New Access | PFE 2021</p>
+                </form>
+              </div>
+            </div>
+
+    {% endblock %}
